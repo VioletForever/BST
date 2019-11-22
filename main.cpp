@@ -7,40 +7,40 @@ int main()
 	ElemType data;
 	BST T = NULL;
 
-	for (int i = 0; i < 15; i++) {			//ÒÀ¾İÏßĞÔ±í½¨Á¢¶ş²æÅÅĞòÊ÷
+	for (int i = 0; i < 15; i++) {			//ä¾æ®çº¿æ€§è¡¨å»ºç«‹äºŒå‰æ’åºæ ‘
 		InsertBST(T, a[i]);
 	}
 
-	cout << "ÒÑÒÀ¾İÏßĞÔ±í½¨Á¢¶ş²æÅÅĞòÊ÷" << endl;
+	cout << "å·²ä¾æ®çº¿æ€§è¡¨å»ºç«‹äºŒå‰æ’åºæ ‘" << endl;
 
 	while (i != 0) {
 		switch (i)
 		{
-		case 1:			//²åÈë½Úµã
-			cout << "ÇëÊäÈë²åÈëµÄ½ÚµãÊıÁ¿:";
+		case 1:			//æ’å…¥èŠ‚ç‚¹
+			cout << "è¯·è¾“å…¥æ’å…¥çš„èŠ‚ç‚¹æ•°é‡:";
 			cin >> n;
-			cout << "ÇëÊäÈëÊı¾İ:";
+			cout << "è¯·è¾“å…¥æ•°æ®:";
 			for (int k = 0; k < n; k++) {
 				cin >> data;
 				InsertBST(T, data);
 			}
 			break;
 
-		case 2:			//±éÀú¶ş²æÅÅĞòÊ÷
+		case 2:			//éå†äºŒå‰æ’åºæ ‘
 			if (T)
 				VisitBST(T);
 			else
-				cout << "BSTÎª¿Õ¡£";
+				cout << "BSTä¸ºç©ºã€‚";
 			cout << endl;
 			break;
 
-		case 3:			//É¾³ı½Úµã
-			cout << "ÇëÊäÈëÒªÉ¾³ıµÄ½ÚµãÊı¾İ£º";
+		case 3:			//åˆ é™¤èŠ‚ç‚¹
+			cout << "è¯·è¾“å…¥è¦åˆ é™¤çš„èŠ‚ç‚¹æ•°æ®ï¼š";
 			cin >> n;
 			DeleteBST(T, n);
 			break;
 
-		case 4:			//Ïú»Ù¶ş²æÅÅĞòÊ÷
+		case 4:			//é”€æ¯äºŒå‰æ’åºæ ‘
 			DestroyBST(T);
 			break;
 		}

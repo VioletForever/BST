@@ -14,11 +14,11 @@ typedef struct BSTNode {
 	BSTNode* Lchild, * Rchild;
 }*BST;
 
-void menu();						//²Ëµ¥
-void InsertBST(BST& T, ElemType n);	//²åÈë½Úµã
-void VisitBST(BST T);				//±éÀú¶ş²æÅÅĞòÊ÷
-void DeleteBST(BST& T,ElemType n);	//É¾³ı½Úµã
-void DestroyBST(BST& T);			//Ïú»Ù¶ş²æÅÅĞòÊ÷
+void menu();						//èœå•
+void InsertBST(BST& T, ElemType n);	//æ’å…¥èŠ‚ç‚¹
+void VisitBST(BST T);				//éå†äºŒå‰æ’åºæ ‘
+void DeleteBST(BST& T,ElemType n);	//åˆ é™¤èŠ‚ç‚¹
+void DestroyBST(BST& T);			//é”€æ¯äºŒå‰æ’åºæ ‘
 
 
 #endif 

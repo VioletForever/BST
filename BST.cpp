@@ -1,86 +1,86 @@
 #include"BST.h"
 
 
-void menu()														//²Ëµ¥
+void menu()														//èœå•
 {
 	cout << "=======================================================================" << endl;
-	cout << "¡ö-------------------------------Ö÷²Ëµ¥------------------------------¡ö" << endl;
-	cout << "|    1¡¢²åÈë½Úµã(´´½¨¶ş²æÊ÷)           2¡¢ÒÔÖĞĞòĞòÁĞ±éÀú¶ş²æÊ÷        |" << endl;
-	cout << "|    3¡¢É¾³ı½Úµã                       4¡¢Ïú»Ù¶ş²æÊ÷                  |" << endl;
-	cout << "¡ö-------------------------------0¡¢ÍË³ö-----------------------------¡ö" << endl;
-	cout << "ÇëÊäÈëÒªÖ´ĞĞµÄ²Ù×÷±àºÅ£º";
+	cout << "â– -------------------------------ä¸»èœå•------------------------------â– " << endl;
+	cout << "|    1ã€æ’å…¥èŠ‚ç‚¹(åˆ›å»ºäºŒå‰æ ‘)           2ã€ä»¥ä¸­åºåºåˆ—éå†äºŒå‰æ ‘        |" << endl;
+	cout << "|    3ã€åˆ é™¤èŠ‚ç‚¹                       4ã€é”€æ¯äºŒå‰æ ‘                  |" << endl;
+	cout << "â– -------------------------------0ã€é€€å‡º-----------------------------â– " << endl;
+	cout << "è¯·è¾“å…¥è¦æ‰§è¡Œçš„æ“ä½œç¼–å·ï¼š";
 }
 
 
-void InsertBST(BST& T,ElemType n)	//²åÈë½Úµã
+void InsertBST(BST& T,ElemType n)	//æ’å…¥èŠ‚ç‚¹
 {
-	if (!T) {									//Èç¹ûTÎª¿Õ£¬ÔòĞÂ½¨½Úµã²¢²åÈë
+	if (!T) {									//å¦‚æœTä¸ºç©ºï¼Œåˆ™æ–°å»ºèŠ‚ç‚¹å¹¶æ’å…¥
 		T = new BSTNode;
 		T->data = n;
 		T->Lchild = T->Rchild = NULL;
 	}
-	else if (n > T->data)						//n>T->dataÔò½øÈëTÓÒ×ÓÊ÷ËÑË÷
+	else if (n > T->data)						//n>T->dataåˆ™è¿›å…¥Tå³å­æ ‘æœç´¢
 		InsertBST(T->Rchild, n);
-	else if (n < T->data)						//n<T->dataÔò½øÈëT×ó×ÓÊ÷ËÑË÷
+	else if (n < T->data)						//n<T->dataåˆ™è¿›å…¥Tå·¦å­æ ‘æœç´¢
 		InsertBST(T->Lchild, n);
 }
 
-void VisitBST(BST T)				//±éÀú¶ş²æÅÅĞòÊ÷
+void VisitBST(BST T)				//éå†äºŒå‰æ’åºæ ‘
 {
-	if (T) {									//ÈôT´æÔÚ
-		VisitBST(T->Lchild);					//±éÀú×ó×ÓÊ÷
-		cout << setw(6) << T->data;				//Êä³öT
-		VisitBST(T->Rchild);					//±éÀúÓÒ×ÓÊ÷
+	if (T) {									//è‹¥Tå­˜åœ¨
+		VisitBST(T->Lchild);					//éå†å·¦å­æ ‘
+		cout << setw(6) << T->data;				//è¾“å‡ºT
+		VisitBST(T->Rchild);					//éå†å³å­æ ‘
 	}
 }
 
-void DeleteBST(BST& T, ElemType n)	//É¾³ı½Úµã
+void DeleteBST(BST& T, ElemType n)	//åˆ é™¤èŠ‚ç‚¹
 {
-	if (!T)										//ÈôTÎª¿Õ
-		cout << "Î´ÕÒµ½¸Ã½Úµã¡£" << endl;
+	if (!T)										//è‹¥Tä¸ºç©º
+		cout << "æœªæ‰¾åˆ°è¯¥èŠ‚ç‚¹ã€‚" << endl;
 	else {
 		if (T->data == n) {
-			if (!T->Lchild && !T->Rchild) {		//ÈôÉ¾³ı½ÚµãÊÇÒ¶×Ó½Úµã
+			if (!T->Lchild && !T->Rchild) {		//è‹¥åˆ é™¤èŠ‚ç‚¹æ˜¯å¶å­èŠ‚ç‚¹
 				BST p = T;
 				T = NULL;
 				delete p;
 			}
-			else if (T->Lchild && !T->Rchild) {	//ÈôÉ¾³ı½ÚµãÖ»ÓĞ×ó×ÓÊ÷
+			else if (T->Lchild && !T->Rchild) {	//è‹¥åˆ é™¤èŠ‚ç‚¹åªæœ‰å·¦å­æ ‘
 				BST p = T;
 				T = T->Lchild;
 				delete p;
 			}
-			else if (!T->Lchild && T->Rchild) {	//ÈôÉ¾³ı½ÚµãÖ»ÓĞÓÒ×ÓÊ÷
+			else if (!T->Lchild && T->Rchild) {	//è‹¥åˆ é™¤èŠ‚ç‚¹åªæœ‰å³å­æ ‘
 				BST p = T;
 				T = T->Rchild;
 				delete p;
 			}
-			else {								//ÈôÉ¾³ı½ÚµãÓĞ×óÓÒ×ÓÊ÷
-				BST p = T, S = T->Lchild;		//S½øÈëT×ó×ÓÊ÷£¬pÖ¸ÏòSÇ°Çı
-				while (S->Rchild) {				//SÔÚT×ó×ÓÊ÷±éÀúÑ°ÕÒTÇ°Çı½Úµã
+			else {								//è‹¥åˆ é™¤èŠ‚ç‚¹æœ‰å·¦å³å­æ ‘
+				BST p = T, S = T->Lchild;		//Sè¿›å…¥Tå·¦å­æ ‘ï¼ŒpæŒ‡å‘Så‰é©±
+				while (S->Rchild) {				//Såœ¨Tå·¦å­æ ‘éå†å¯»æ‰¾Tå‰é©±èŠ‚ç‚¹
 					p = S;
 					S = S->Rchild;
 				}
-				T->data = S->data;				//½«S½ÚµãÊı¾İ¸³¸øT
-				if (p == T)						//pÖ¸ÏòT£¬Ôò½«T×óº¢×ÓÖ¸ÏòS×óº¢×Ó
+				T->data = S->data;				//å°†SèŠ‚ç‚¹æ•°æ®èµ‹ç»™T
+				if (p == T)						//pæŒ‡å‘Tï¼Œåˆ™å°†Tå·¦å­©å­æŒ‡å‘Så·¦å­©å­
 					p->Lchild = S->Lchild;
-				else							//p²»Ö¸ÏòT£¬Ôò½«pµÄÓÒº¢×ÓÖ¸ÏòSµÄ×óº¢×Ó
+				else							//pä¸æŒ‡å‘Tï¼Œåˆ™å°†pçš„å³å­©å­æŒ‡å‘Sçš„å·¦å­©å­
 					p->Rchild = S->Lchild;
 			}
 		}
-		else if (n > T->data)					//Èôn>T->data£¬½øÈëÓÒ×ÓÊ÷Ñ°ÕÒ
+		else if (n > T->data)					//è‹¥n>T->dataï¼Œè¿›å…¥å³å­æ ‘å¯»æ‰¾
 			DeleteBST(T->Rchild, n);
-		else if (n < T->data)					//Èôn<T->data£¬½øÈë×ó×ÓÊ÷Ñ°ÕÒ
+		else if (n < T->data)					//è‹¥n<T->dataï¼Œè¿›å…¥å·¦å­æ ‘å¯»æ‰¾
 			DeleteBST(T->Lchild, n);
 	}
 }
 
-void DestroyBST(BST& T)				//Ïú»Ù¶ş²æÅÅĞòÊ÷
+void DestroyBST(BST& T)				//é”€æ¯äºŒå‰æ’åºæ ‘
 {
 	if (T) {
-		DestroyBST(T->Lchild);					//Ïú»Ù×ó×ÓÊ÷
-		DestroyBST(T->Rchild);					//Ïú»ÙÓÒ×ÓÊ÷
-		delete T;								//Ïú»Ùµ±Ç°½Úµã
+		DestroyBST(T->Lchild);					//é”€æ¯å·¦å­æ ‘
+		DestroyBST(T->Rchild);					//é”€æ¯å³å­æ ‘
+		delete T;								//é”€æ¯å½“å‰èŠ‚ç‚¹
 		T = NULL;
 	}
 }
