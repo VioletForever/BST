@@ -1,2 +1,1 @@
-# BST
-Algorithm source code
+#Algorithm
